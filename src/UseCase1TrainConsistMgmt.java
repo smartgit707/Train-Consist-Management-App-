@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -56,27 +57,40 @@ public class UseCase1TrainConsistMgmt {
         System.out.println("UC4 - Maintain Ordered Bogie IDs (LinkedList)");
         System.out.println("=======================================\n");
 
-        // Create LinkedList for ordered train consist
         LinkedList<String> orderedTrain = new LinkedList<>();
-
-        // Add bogies in sequence
-        orderedTrain.add("Engine");   // add at end
+        orderedTrain.add("Engine");
         orderedTrain.add("Sleeper");
         orderedTrain.add("AC");
         orderedTrain.add("Cargo");
         orderedTrain.add("Guard");
-
         System.out.println("Initial ordered train consist: " + orderedTrain);
 
-        // Insert Pantry Car at position 2 (3rd position, zero-based index)
         orderedTrain.add(2, "Pantry Car");
         System.out.println("After inserting Pantry Car at position 2: " + orderedTrain);
 
-        // Remove first and last bogie
-        orderedTrain.removeFirst(); // removes Engine
-        orderedTrain.removeLast();  // removes Guard
+        orderedTrain.removeFirst();
+        orderedTrain.removeLast();
         System.out.println("After removing first and last bogie: " + orderedTrain);
 
-        System.out.println("\nUC4 operations completed.");
+        System.out.println("\nUC4 operations completed.\n");
+
+        // ================= UC5 =================
+        System.out.println("=======================================");
+        System.out.println("UC5 - Preserve Insertion Order of Bogies (LinkedHashSet)");
+        System.out.println("=======================================\n");
+
+        LinkedHashSet<String> linkedHashTrain = new LinkedHashSet<>();
+
+        // Add bogies with intentional duplicate
+        linkedHashTrain.add("Engine");
+        linkedHashTrain.add("Sleeper");
+        linkedHashTrain.add("Cargo");
+        linkedHashTrain.add("Guard");
+        linkedHashTrain.add("Sleeper"); // duplicate, ignored automatically
+
+        // Display final formation preserving insertion order
+        System.out.println("Final train formation (unique & ordered): " + linkedHashTrain);
+
+        System.out.println("\nUC5 operations completed.");
     }
 }
