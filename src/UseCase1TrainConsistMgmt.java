@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class UseCase1TrainConsistMgmt {
@@ -80,17 +82,31 @@ public class UseCase1TrainConsistMgmt {
         System.out.println("=======================================\n");
 
         LinkedHashSet<String> linkedHashTrain = new LinkedHashSet<>();
-
-        // Add bogies with intentional duplicate
         linkedHashTrain.add("Engine");
         linkedHashTrain.add("Sleeper");
         linkedHashTrain.add("Cargo");
         linkedHashTrain.add("Guard");
-        linkedHashTrain.add("Sleeper"); // duplicate, ignored automatically
-
-        // Display final formation preserving insertion order
+        linkedHashTrain.add("Sleeper"); // duplicate ignored
         System.out.println("Final train formation (unique & ordered): " + linkedHashTrain);
 
-        System.out.println("\nUC5 operations completed.");
+        System.out.println("\nUC5 operations completed.\n");
+
+        // ================= UC6 =================
+        System.out.println("=======================================");
+        System.out.println("UC6 - Map Bogie to Capacity (HashMap)");
+        System.out.println("=======================================\n");
+
+        // Create HashMap to store bogie capacities
+        Map<String, Integer> bogieCapacityMap = new HashMap<>();
+        bogieCapacityMap.put("Sleeper", 72);
+        bogieCapacityMap.put("AC Chair", 54);
+        bogieCapacityMap.put("First Class", 36);
+
+        // Iterate over map using entrySet
+        for (Map.Entry<String, Integer> entry : bogieCapacityMap.entrySet()) {
+            System.out.println("Bogie: " + entry.getKey() + " | Capacity: " + entry.getValue());
+        }
+
+        System.out.println("\nUC6 operations completed.");
     }
 }
