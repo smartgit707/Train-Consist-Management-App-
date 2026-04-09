@@ -1,4 +1,4 @@
-public class UseCase15TrainConsistMgmt {
+public class UseCase16TrainConsistMgmt {
 
     // ---- CUSTOM RUNTIME EXCEPTION ----
     static class CargoSafetyException extends RuntimeException {
